@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander Gu | Technical Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 
+    Chosen Palette: "Warm Neutral" - A palette using a soft off-white background (#F8F7F4), dark slate for text (#334155), and a calming teal (#14B8A6) for accents and interactive elements. This creates a professional, modern, and harmonious feel that is easy on the eyes.
+    Application Structure Plan: A single-page application with a fixed navigation header for easy access to key sections (About, Projects, Experience, Skills). The structure is designed for a hiring manager's user flow, starting with a strong "About Me" introduction, followed by a deep dive into "Projects" as the main showcase, then "Professional Experience," and concluding with a scannable "Technical Skills" section. This non-linear but guided structure allows users to either scroll through the narrative or jump directly to the information they find most relevant, maximizing usability and impact.
+    Visualization & Content Choices:
+    - Report Info: "Media Browser Application" with "aggregate statistics in a dashboard". Goal: Demonstrate backend optimization skills. Viz/Method: Textual description of the achievement with a code snippet placeholder. Interaction: None. Justification: Focuses on the most impressive and quantifiable achievement (30% query reduction) which is more relevant for a data-focused role than a UI demo.
+    - Report Info: "Song Vocal Syllable Transcriber" model architecture. Goal: Visually explain a complex technical process simply. Viz/Method: A flowchart created with styled HTML/CSS divs and Tailwind. Interaction: None, static visual aid. Justification: Avoids using images/SVG while still providing a clear, professional-looking diagram that clarifies the project's technical depth.
+    - Report Info: Technical Skills list. Goal: Make skills easily scannable and visually appealing. Viz/Method: Grouped lists with skills presented as styled "pills" or "tags" using HTML/CSS and Tailwind. Interaction: None, static display. Justification: Enhances readability and visual organization compared to a plain text list, making it easier for a recruiter to quickly assess technical qualifications.
+    CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4;
+            color: #334155;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #14B8A6;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .active-tab {
+            background-color: #14B8A6;
+            color: white;
+        }
+        .inactive-tab {
+            background-color: #E5E7EB;
+            color: #334155;
+        }
+        .skill-pill {
+            display: inline-block;
+            background-color: #e0f2f1;
+            color: #00796b;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-xl font-bold text-slate-800">Alexander Gu</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-slate-600 font-medium">About</a>
+                    <a href="#projects" class="nav-link text-slate-600 font-medium">Projects</a>
+                    <a href="#experience" class="nav-link text-slate-600 font-medium">Experience</a>
+                    <a href="#skills" class="nav-link text-slate-600 font-medium">Skills</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section id="about" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold text-slate-800 tracking-tight">Technical Portfolio</h1>
+                    <p class="mt-4 text-lg text-slate-600">A showcase of my work in data, development, and technology.</p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-md">
+                    <h2 class="text-3xl font-bold text-teal-600 mb-4">About Me</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        I am a dual-degree student in Computer Science and Mathematical Sciences. [Cringe description omitted.]
+                    </p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="https://linkedin.com/in/alexander-gu-64a6a5263/" target="_blank" class="nav-link text-teal-600 font-medium hover:text-teal-700">LinkedIn</a>
+                        <a href="https://github.com/alexzgu" target="_blank" class="nav-link text-teal-600 font-medium hover:text-teal-700">GitHub</a>
+                        <a href="mailto:azgu@wpi.edu" class="nav-link text-teal-600 font-medium hover:text-teal-700">Email</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 md:py-24 bg-teal-50/50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12">Projects</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 gap-8 md:gap-12">
+                    
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md flex flex-col">
+                        <h3 class="text-2xl font-bold text-teal-600 mb-2">Song Vocal Syllable Transcriber</h3>
+                        <p class="text-slate-500 mb-4">A deep learning pipeline for time-accurate Japanese song transcriptions.</p>
+                        <div class="flex-grow">
+                            <div class="flex border-b mb-4">
+                                <button data-tab-target="syllable-overview" class="tab-button active-tab py-2 px-4 font-medium rounded-t-lg">Overview</button>
+                                <button data-tab-target="syllable-role" class="tab-button inactive-tab py-2 px-4 font-medium rounded-t-lg">My Role</button>
+                                <button data-tab-target="syllable-results" class="tab-button inactive-tab py-2 px-4 font-medium rounded-t-lg">Results</button>
+                            </div>
+                            <div class="tab-content">
+                                <div id="syllable-overview" class="prose prose-slate max-w-none">
+                                    <p>As part of a three-person team, we tackled the challenge of creating high-quality, time-accurate subtitles for karaoke. The project involved building a model that could listen to a song's vocal track and precisely predict the start and end time of each syllable.</p>
+                                    <p><strong>Technologies:</strong> Python, PyTorch, Transformers, Wav2Vec2, Rust</p>
+                                </div>
+                                <div id="syllable-role" class="hidden prose prose-slate max-w-none">
+                                    <p>In our team of three, my primary responsibility was the foundational data pipeline. This was a critical, hands-on role that included:</p>
+                                    <ul>
+                                        <li><strong>Data Curation & Cleaning:</strong> I performed the entire data collection and cleaning process, personally curating a high-quality dataset from scratch by meticulously going through numerous <strong>Hololive VTuber</strong> music channels.</li>
+                                        <li><strong>Data Pipeline Ownership:</strong> This process required exceptional attention to detail to prepare the raw data for our machine learning models, directly impacting the performance of the final project.</li>
+                                    </ul>
+                                </div>
+                                 <div id="syllable-results" class="hidden prose prose-slate max-w-none">
+                                     <p>The project culminated in a research paper outlining the approach and findings. Our syllable prediction model achieved an F1 score of 0.535 across 110 Hiragana classes.</p>
+                                     <p>Key findings showed that many classification errors occurred between similar-sounding syllables (e.g., "wo" vs. "o"), a common challenge in vocal analysis due to pronunciation variations in singing.</p>
+                                    <p class="mt-4 text-sm font-semibold">Model Architecture Flow:</p>
+                                    <div class="flex flex-wrap items-center justify-start gap-2 text-center text-xs mt-2">
+                                        <div class="bg-white border-2 border-teal-200 p-2 rounded-md shadow-sm">Raw Audio</div>
+                                        <div class="font-semibold text-teal-500">&rarr;</div>
+                                        <div class="bg-white border-2 border-teal-200 p-2 rounded-md shadow-sm">Wav2Vec2</div>
+                                        <div class="font-semibold text-teal-500">&rarr;</div>
+                                        <div class="bg-white border-2 border-teal-200 p-2 rounded-md shadow-sm">Transformer</div>
+                                        <div class="font-semibold text-teal-500">&rarr;</div>
+                                        <div class="bg-white border-2 border-teal-200 p-2 rounded-md shadow-sm">Timestamps</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex space-x-6">
+                            <a href="https://github.com/alexzgu/karaoke_subtitle_dataset" target="_blank" class="nav-link text-teal-600 font-medium hover:text-teal-700">View Dataset on GitHub</a>
+                            <a href="JP_KRKE_Subtitle_Transcription_Paper.pdf" target="_blank" class="nav-link text-teal-600 font-medium hover:text-teal-700">Read Paper (PDF)</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md flex flex-col">
+                        <h3 class="text-2xl font-bold text-teal-600 mb-2">Polysolve Calculator</h3>
+                        <p class="text-slate-500 mb-4">An LLM-powered calculator for solving multi-step word problems.</p>
+                        <div class="flex-grow">
+                            <div class="flex border-b mb-4">
+                                <button data-tab-target="polysolve-overview" class="tab-button active-tab py-2 px-4 font-medium rounded-t-lg">Overview</button>
+                                <button data-tab-target="polysolve-role" class="tab-button inactive-tab py-2 px-4 font-medium rounded-t-lg">My Role</button>
+                                <button data-tab-target="polysolve-arch" class="tab-button inactive-tab py-2 px-4 font-medium rounded-t-lg">Architecture</button>
+                            </div>
+                            <div class="tab-content">
+                                <div id="polysolve-overview" class="prose prose-slate max-w-none">
+                                    <p>In a two-person team, we created a novel calculator capable of parsing multi-step word problems and generating verifiable, step-by-step solutions. The system leverages a bipartite graph to map relationships between variables and equations.</p>
+                                    <p><strong>Technologies:</strong> Python, Rust, Slurm, Large Language Models (LLMs)</p>
+                                </div>
+                                <div id="polysolve-role" class="hidden prose prose-slate max-w-none">
+                                     <p>My core contributions focused on the machine learning and research aspects of the project:</p>
+                                    <ul>
+                                        <li><strong>LLM Implementation:</strong> I utilized a Large Language Model to parse key information and relationships from unstructured word problems.</li>
+                                        <li><strong>HPC Management:</strong> I was responsible for hosting and fine-tuning the model on WPI's Turing High Performance Computing (HPC) cluster, managing resources and jobs using Slurm.</li>
+                                        <li><strong>SOTA Research:</strong> I conducted comparative research on the reasoning capabilities of State-Of-The-Art (SOTA) LLMs to benchmark our approach.</li>
+                                    </ul>
+                                </div>
+                                 <div id="polysolve-arch" class="hidden prose prose-slate max-w-none">
+                                     <p>The system follows a logical pipeline from problem to solution:</p>
+                                    <div class="flex flex-wrap items-center justify-start gap-2 text-center text-xs mt-2">
+                                        <div class="bg-white border-2 border-teal-200 p-2 rounded-md shadow-sm">Word Problem</div>
+                                        <div class="font-semibold text-teal-500">&rarr;</div>
+                                        <div class="bg-white border-2 border-teal-200 p-2 rounded-md shadow-sm">LLM Parser</div>
+                                        <div class="font-semibold text-teal-500">&rarr;</div>
+                                        <div class="bg-white border-2 border-teal-200 p-2 rounded-md shadow-sm">Bipartite Graph</div>
+                                        <div class="font-semibold text-teal-500">&rarr;</div>
+                                        <div class="bg-white border-2 border-teal-200 p-2 rounded-md shadow-sm">Solution Steps</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="mt-6 flex space-x-6">
+                            <a href="polysolve_paper.pdf" target="_blank" class="nav-link text-teal-600 font-medium hover:text-teal-700">Read Paper (PDF)</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md flex flex-col">
+                        <h3 class="text-2xl font-bold text-teal-600 mb-2">Media Browser Application</h3>
+                        <p class="text-slate-500 mb-4">A full-stack app for media discovery and tracking user statistics.</p>
+                        <div class="flex-grow prose prose-slate max-w-none">
+                            <p>As part of a three-person team, we built a full-stack application to serve as a centralized hub for media discovery and tracking. Users could discover media, add items to custom lists, and view aggregate statistics on a dashboard.</p>
+                            <p><strong>My Key Contribution:</strong> I owned the backend and database architecture. My primary focus was on performance and efficiency, leading me to design and implement key optimizations.</p>
+                            <div class="mt-4 bg-slate-50 p-4 rounded-lg">
+                                <p class="font-semibold text-slate-700">Achievement Spotlight:</p>
+                                <p class="text-teal-600 text-lg font-bold">Reduced Database Query Times by 30%</p>
+                                <p class="text-sm text-slate-500">I accomplished this by implementing sorted indexes and database pagination, which significantly improved the application's responsiveness when fetching large sets of media data.</p>
+                            </div>
+                            <p class="mt-4"><strong>Technologies:</strong> Python, PostgreSQL, React, SQL</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12">Professional Experience</h2>
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-teal-600">Software Developer Intern</h3>
+                    <p class="text-slate-500 mb-4 font-medium">Standards and Testing Centre (STC)</p>
+                     <div class="prose prose-slate max-w-none">
+                        <p>During my internship at STC, I contributed to a four-person team tasked with building a full-stack project management application to replace manual tracking methods with a streamlined, data-driven tool.</p>
+                        <ul>
+                           <li><strong>Full-Stack Feature Development:</strong> I implemented several core features, including graph visualizations for project timelines (Gantt Chart, CPM, EVM), an automatic task scheduling system, and an email notification system.</li>
+                           <li><strong>User-Centric Design & Testing:</strong> I actively participated in the feedback loop by shadowing end-users and conducting User Acceptance Testing (UAT) to gather iterative feedback and improve the application’s usability.</li>
+                           <li><strong>Documentation:</strong> I authored a comprehensive User Guide and detailed Technical Documentation to ensure a smooth handover to the internal team.</li>
+                        </ul>
+                        <p><strong>Technologies:</strong> PostgreSQL, FastAPI, React</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 md:py-24 bg-slate-800 text-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Technical Skills</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-400 mb-4">Languages</h3>
+                        <div class="flex flex-wrap">
+                            <span class="skill-pill bg-teal-400/20 text-teal-300">Python</span><span class="skill-pill bg-teal-400/20 text-teal-300">Rust</span><span class="skill-pill bg-teal-400/20 text-teal-300">SQL</span><span class="skill-pill bg-teal-400/20 text-teal-300">SLURM</span><span class="skill-pill bg-teal-400/20 text-teal-300">Java</span><span class="skill-pill bg-teal-400/20 text-teal-300">C/C++</span><span class="skill-pill bg-teal-400/20 text-teal-300">Typescript</span><span class="skill-pill bg-teal-400/20 text-teal-300">HTML/CSS</span><span class="skill-pill bg-teal-400/20 text-teal-300">Bash</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-400 mb-4">Frameworks</h3>
+                         <div class="flex flex-wrap">
+                           <span class="skill-pill bg-teal-400/20 text-teal-300">PyTorch</span><span class="skill-pill bg-teal-400/20 text-teal-300">React</span><span class="skill-pill bg-teal-400/20 text-teal-300">Svelte</span><span class="skill-pill bg-teal-400/20 text-teal-300">Django</span><span class="skill-pill bg-teal-400/20 text-teal-300">GraphQL</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-teal-400 mb-4">Software & Tools</h3>
+                        <div class="flex flex-wrap">
+                           <span class="skill-pill bg-teal-400/20 text-teal-300">PostgreSQL</span><span class="skill-pill bg-teal-400/20 text-teal-300">Oracle</span><span class="skill-pill bg-teal-400/20 text-teal-300">Apptainer</span><span class="skill-pill bg-teal-400/20 text-teal-300">Neovim</span><span class="skill-pill bg-teal-400/20 text-teal-300">Git/GitHub</span><span class="skill-pill bg-teal-400/20 text-teal-300">Jira</span><span class="skill-pill bg-teal-400/20 text-teal-300">Excel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Alexander Gu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const parent = button.closest('.project-card');
+                    const targetId = button.dataset.tabTarget;
+                    
+                    parent.querySelectorAll('.tab-button').forEach(btn => {
+                        btn.classList.remove('active-tab');
+                        btn.classList.add('inactive-tab');
+                    });
+                    
+                    button.classList.add('active-tab');
+                    button.classList.remove('inactive-tab');
+                    
+                    parent.querySelectorAll('.tab-content > div').forEach(content => {
+                        if (content.id === targetId) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            const navLinks = document.querySelectorAll('header nav a');
+             navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
